@@ -608,7 +608,7 @@ main,
 
 .hero__right-interface {
   position: absolute;
-  z-index: 3;
+  z-index: 45;
   top: calc(var(--nav-height) + 2rem);
   right: 0;
   display: flex;

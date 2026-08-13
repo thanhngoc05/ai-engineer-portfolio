@@ -53,11 +53,11 @@ pnpm build
 Copy `.env.example` and set the public production URL:
 
 ```env
-NEXT_PUBLIC_SITE_URL=https://your-production-url.vercel.app
+NEXT_PUBLIC_SITE_URL=https://ai-engineer-portfolio-pi-six.vercel.app
 ```
 
 This value is used for canonical metadata, sitemap, and robots output. The AI interface currently uses the repository's mock streaming route and does not require an external API key.
 
 ## Live Demo
 
-The production Vercel URL will be added here after deployment.
+[View the live portfolio](https://ai-engineer-portfolio-pi-six.vercel.app)

@@ -11,9 +11,9 @@ export default function HomePage() {
   return (
     <>
       <ThreeExperience />
-      <PandaPetCompanion />
       <Navbar />
       <main id="main-content">
+        <PandaPetCompanion />
         <Hero />
         <Education />
         <AIChat />
