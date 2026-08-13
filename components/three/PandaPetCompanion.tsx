@@ -35,7 +35,7 @@ function clampPosition(position: PetPosition, element: HTMLElement | null) {
 
   const mobile = window.innerWidth <= 767;
   const margin = mobile ? 6 : 14;
-  const minimumTop = mobile ? 74 : 88;
+  const minimumTop = mobile ? 170 : 88;
   const petWidth = element?.offsetWidth ?? (mobile ? 112 : 190);
   const petHeight = element?.offsetHeight ?? (mobile ? 150 : 220);
   const maximumLeft = Math.max(margin, window.innerWidth - petWidth - margin);
@@ -67,7 +67,9 @@ export function PandaPetCompanion() {
             window.innerWidth -
             (element?.offsetWidth ?? (mobileViewport ? 112 : 190)) -
             (mobileViewport ? 6 : 20),
-          top: window.innerHeight * (mobileViewport ? 0.24 : 0.28),
+          top: mobileViewport
+            ? Math.max(170, window.innerHeight * 0.24)
+            : window.innerHeight * 0.28,
         };
 
         return clampPosition(current ?? initial, element);
