@@ -1824,6 +1824,11 @@ main,
 /* Mobile */
 
 @media (max-width: 767px) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
   .section-shell,
   .navbar__inner,
   .footer {
