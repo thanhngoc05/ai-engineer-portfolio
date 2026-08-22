@@ -1908,7 +1908,7 @@ main,
   .hero {
     min-height: 100svh;
     align-items: flex-end;
-    padding-bottom: 3.5rem;
+    padding-bottom: clamp(4rem, 8svh, 5rem);
   }
 
   .hero__grid::before { left: 50%; }
@@ -1975,14 +1975,14 @@ main,
     position: absolute;
     top: max(170px, 24vh);
     right: 0.3rem;
-    width: 112px;
-    height: 150px;
+    width: 96px;
+    height: 132px;
   }
 
   .panda-pet__label {
     right: 0.2rem;
     bottom: 0.15rem;
-    font-size: 0.42rem;
+    font-size: 0.38rem;
   }
 
   .about { padding-top: 4.5rem; }

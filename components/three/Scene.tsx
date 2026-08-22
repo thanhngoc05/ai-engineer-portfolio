@@ -37,7 +37,7 @@ export default function Scene() {
         <Lights />
         <AICore
           progress={progress}
-          mobile={mobile || quality < 0.7}
+          mobile={mobile}
           reducedMotion={reducedMotion}
         />
         <NeuralParticles

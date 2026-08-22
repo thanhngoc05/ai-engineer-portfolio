@@ -167,18 +167,22 @@ export function AICore({ progress, mobile, reducedMotion }: AICoreProps) {
   return (
     <group ref={rootRef}>
       <group ref={shellRef}>
-        <ProcessorFrame />
-        <mesh rotation={[0, 0, Math.PI / 4]}>
-          <boxGeometry args={[1.92, 1.92, 0.16]} />
-          <meshPhysicalMaterial
-            color="#080b11"
-            metalness={0.82}
-            roughness={0.28}
-            transmission={0.1}
-            transparent
-            opacity={0.74}
-          />
-        </mesh>
+        {!mobile && (
+          <>
+            <ProcessorFrame />
+            <mesh rotation={[0, 0, Math.PI / 4]}>
+              <boxGeometry args={[1.92, 1.92, 0.16]} />
+              <meshPhysicalMaterial
+                color="#080b11"
+                metalness={0.82}
+                roughness={0.28}
+                transmission={0.1}
+                transparent
+                opacity={0.74}
+              />
+            </mesh>
+          </>
+        )}
         <mesh>
           <icosahedronGeometry args={[1.62, 1]} />
           <meshBasicMaterial color="#536174" wireframe transparent opacity={0.13} />
@@ -225,10 +229,12 @@ export function AICore({ progress, mobile, reducedMotion }: AICoreProps) {
         <meshBasicMaterial color="#8ceeff" wireframe transparent opacity={0.28} toneMapped={false} />
       </mesh>
 
-      <instancedMesh ref={pinsRef} args={[undefined, undefined, mobile ? 28 : 44]}>
-        <boxGeometry args={[0.16, 0.035, 0.04]} />
-        <meshStandardMaterial color="#5d6a7b" metalness={0.98} roughness={0.2} />
-      </instancedMesh>
+      {!mobile && (
+        <instancedMesh ref={pinsRef} args={[undefined, undefined, 44]}>
+          <boxGeometry args={[0.16, 0.035, 0.04]} />
+          <meshStandardMaterial color="#5d6a7b" metalness={0.98} roughness={0.2} />
+        </instancedMesh>
+      )}
     </group>
   );
 }

@@ -47,7 +47,7 @@ export function Education() {
             alt={education.portrait.alt}
             fill
             sizes="(max-width: 767px) 96px, 145px"
-            quality={90}
+            quality={75}
           />
         </div>
       </Reveal>

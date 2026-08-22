@@ -33,12 +33,13 @@ type PetPosition = {
 function clampPosition(position: PetPosition, element: HTMLElement | null) {
   if (typeof window === "undefined") return position;
 
-  const mobile = window.innerWidth <= 767;
+  const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
+  const mobile = viewportWidth <= 767;
   const margin = mobile ? 6 : 14;
   const minimumTop = mobile ? 170 : 88;
-  const petWidth = element?.offsetWidth ?? (mobile ? 112 : 190);
-  const petHeight = element?.offsetHeight ?? (mobile ? 150 : 220);
-  const maximumLeft = Math.max(margin, window.innerWidth - petWidth - margin);
+  const petWidth = element?.offsetWidth ?? (mobile ? 96 : 190);
+  const petHeight = element?.offsetHeight ?? (mobile ? 132 : 220);
+  const maximumLeft = Math.max(margin, viewportWidth - petWidth - margin);
   const maximumTop = Math.max(minimumTop, window.innerHeight - petHeight - margin);
 
   return {
@@ -61,11 +62,12 @@ export function PandaPetCompanion() {
     const updatePosition = () => {
       setPosition((current) => {
         const element = containerRef.current;
-        const mobileViewport = window.innerWidth <= 767;
+        const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
+        const mobileViewport = viewportWidth <= 767;
         const initial = {
           left:
-            window.innerWidth -
-            (element?.offsetWidth ?? (mobileViewport ? 112 : 190)) -
+            viewportWidth -
+            (element?.offsetWidth ?? (mobileViewport ? 96 : 190)) -
             (mobileViewport ? 6 : 20),
           top: mobileViewport
             ? Math.max(170, window.innerHeight * 0.24)
